@@ -1,0 +1,35 @@
+{
+  "title": "Pricing",
+  "root": {
+    "type": "Page",
+    "props": { "title": "Plans & Pricing" },
+    "children": [
+      {
+        "type": "Navbar",
+        "props": { "brand": "Acme SaaS" },
+        "children": [
+          { "type": "Link", "props": { "href": "/features", "text": "Features" } },
+          { "type": "Link", "props": { "href": "/pricing", "text": "Pricing" } },
+          { "type": "Link", "props": { "href": "/contact", "text": "Contact" } }
+        ]
+      },
+      {
+        "type": "Heading",
+        "props": { "level": 1, "text": "Simple pricing for every team" }
+      },
+      {
+        "type": "Paragraph",
+        "props": { "text": "Start free. Upgrade when you grow." }
+      },
+      {
+        "type": "Card",
+        "props": { "title": "Pro" },
+        "children": [
+          { "type": "List", "props": { "items": ["Unlimited projects", "Priority support", "Custom domains"] } },
+          { "type": "Badge", "props": { "text": "$29 / month", "tone": "success" } },
+          { "type": "Button", "props": { "label": "Get started", "variant": "primary" } }
+        ]
+      }
+    ]
+  }
+}

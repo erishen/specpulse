@@ -1,0 +1,332 @@
+/* ─── On-page editor overlay ────────────────────────────────────── */
+
+.editor-node {
+  display: contents;
+}
+
+.editor-node > * {
+  transition: outline-color 0.15s ease;
+  border-radius: 6px;
+}
+
+.editor-node.selected > * {
+  outline: 2px dashed #667eea;
+  outline-offset: 2px;
+}
+
+.editor-node.hovered > * {
+  outline: 1px solid rgba(102, 126, 234, 0.45);
+  outline-offset: 1px;
+}
+
+.editor-toolbar {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #e2e8f0;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+}
+
+.editor-toolbar button {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editor-toolbar .save-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.editor-toolbar .exit-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+}
+
+.editor-toolbar .ref-chip {
+  margin-left: 10px;
+  padding: 3px 10px;
+  background: rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.4);
+  border-radius: 999px;
+  color: #a5b4fc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.editor-toolbar .ref-chip:hover {
+  background: rgba(102, 126, 234, 0.28);
+}
+
+.editor-toolbar .ref-chip small {
+  font-family: inherit;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.editor-toolbar .copy-toast {
+  margin-left: 10px;
+  padding: 3px 10px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 999px;
+  color: #6ee7b7;
+  font-size: 12px;
+}
+
+.editor-inspector {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  bottom: 64px;
+  width: 268px;
+  z-index: 100000;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  color: #e2e8f0;
+  padding: 14px;
+  overflow-y: auto;
+  font-size: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.editor-inspector.collapsed {
+  display: none;
+}
+
+.editor-inspector-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100000;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.editor-inspector-toggle:hover {
+  background: rgba(102, 126, 234, 0.28);
+}
+
+.editor-inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.editor-inspector-header h3 {
+  margin: 0;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-collapse-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.editor-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.editor-children {
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.editor-children > label {
+  color: #94a3b8;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.editor-children-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.editor-child-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #e2e8f0;
+  text-align: left;
+}
+
+.editor-child-item:hover {
+  background: rgba(102, 126, 234, 0.25);
+}
+
+.editor-child-item .child-ref {
+  color: #a5b4fc;
+  font-family: 'SF Mono', Monaco, monospace;
+  flex-shrink: 0;
+}
+
+.editor-inspector h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-type {
+  color: #a5b4fc;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 11px;
+}
+
+.editor-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.editor-field label {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.editor-field input,
+.editor-field select,
+.editor-field textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editor-field textarea {
+  min-height: 56px;
+  resize: vertical;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+
+.editor-field input:focus,
+.editor-field select:focus,
+.editor-field textarea:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.editor-actions button,
+.editor-palette button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.editor-actions button:hover,
+.editor-palette button:hover {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.editor-actions button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.editor-actions button.danger {
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fda4af;
+}
+
+.editor-actions button.danger:hover {
+  background: rgba(244, 63, 94, 0.25);
+}
+
+.editor-palette {
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.editor-palette > label {
+  color: #94a3b8;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.palette-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.editor-empty {
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.6;
+}

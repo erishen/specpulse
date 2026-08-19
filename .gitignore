@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+generated/
+preview/dist/
+preview/node_modules/
+preview/src/App.tsx
+desktop/dist/
+desktop/node_modules/
+desktop/package-lock.json
+exports/
+.DS_Store

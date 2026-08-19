@@ -1,0 +1,117 @@
+{
+  "title": "数据仪表盘",
+  "root": {
+    "type": "Page",
+    "props": { "title": "数据仪表盘" },
+    "children": [
+      {
+        "type": "Navbar",
+        "props": { "brand": "Dashboard" },
+        "children": [
+          { "type": "Link", "props": { "href": "#overview", "text": "概览" } },
+          { "type": "Link", "props": { "href": "#analytics", "text": "分析" } },
+          { "type": "Link", "props": { "href": "#settings", "text": "设置" } }
+        ]
+      },
+      {
+        "type": "Heading",
+        "props": { "level": 1, "text": "项目概览" }
+      },
+      {
+        "type": "Paragraph",
+        "props": { "text": "实时监控项目关键指标，快速了解团队工作状态。" }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "关键指标" }
+      },
+      {
+        "type": "Card",
+        "props": {},
+        "children": [
+          {
+            "type": "Stat",
+            "props": { "label": "活跃用户", "value": "12,847", "unit": "人", "tone": "success" }
+          },
+          {
+            "type": "Stat",
+            "props": { "label": "本月营收", "value": "284,500", "unit": "元", "tone": "info" }
+          },
+          {
+            "type": "Stat",
+            "props": { "label": "转化率", "value": "3.8", "unit": "%", "tone": "warning" }
+          },
+          {
+            "type": "Stat",
+            "props": { "label": "工单数", "value": "42", "tone": "danger" }
+          }
+        ]
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "项目进度" }
+      },
+      {
+        "type": "Progress",
+        "props": { "label": "前端开发", "value": 85, "tone": "success" }
+      },
+      {
+        "type": "Progress",
+        "props": { "label": "后端 API", "value": 62, "tone": "info" }
+      },
+      {
+        "type": "Progress",
+        "props": { "label": "UI 设计", "value": 95, "tone": "success" }
+      },
+      {
+        "type": "Progress",
+        "props": { "label": "测试覆盖", "value": 40, "tone": "warning" }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "近期数据" }
+      },
+      {
+        "type": "Table",
+        "props": {
+          "headers": ["日期", "新增用户", "活跃用户", "营收"],
+          "rows": [
+            ["2026-08-18", "342", "12,847", "¥42,500"],
+            ["2026-08-17", "298", "12,505", "¥38,200"],
+            ["2026-08-16", "415", "13,102", "¥51,800"],
+            ["2026-08-15", "376", "12,726", "¥45,600"],
+            ["2026-08-14", "289", "12,337", "¥36,900"]
+          ]
+        }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "待办事项" }
+      },
+      {
+        "type": "List",
+        "props": {
+          "ordered": false,
+          "items": [
+            "审核新功能 PR #234",
+            "准备下周产品演示",
+            "更新 API 文档",
+            "修复登录页面 Bug"
+          ]
+        }
+      },
+      {
+        "type": "Alert",
+        "props": { "text": "服务器将于今晚 22:00 进行维护，预计持续 30 分钟。", "tone": "warning" }
+      },
+      {
+        "type": "Footer",
+        "props": { "text": "Dashboard © 2026" }
+      }
+    ]
+  }
+}

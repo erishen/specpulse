@@ -1,0 +1,32 @@
+{
+  "name": "specpulse",
+  "version": "0.1.0",
+  "description": "SpecPulse: build React UI from natural language - LLM turns free text into a declarative UI spec, then compiles it to React components",
+  "type": "module",
+  "scripts": {
+    "build": "tsx src/cli/build.ts",
+    "reference": "tsx src/cli/reference.ts",
+    "agent": "tsx src/cli/agent.ts",
+    "ci": "tsx src/cli/ci.ts",
+    "export": "tsx src/cli/export.ts",
+    "adjust": "tsx src/cli/adjust.ts",
+    "regenerate": "tsx src/cli/regenerate.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && npm --prefix preview run typecheck && npm --prefix desktop run typecheck",
+    "desktop": "node scripts/kill-dev.mjs && cd desktop && npm run typecheck && npm run build && ./node_modules/.bin/electron .",
+    "desktop:dev": "node scripts/kill-dev.mjs && cd desktop && VITE_DEV_SERVER_URL=http://localhost:5277 ./node_modules/.bin/electron .",
+    "preview": "cd preview && npm run dev"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "openai": "^6.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

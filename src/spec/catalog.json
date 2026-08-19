@@ -1,0 +1,81 @@
+{
+  "categories": [
+    {
+      "name": "基础组件",
+      "components": [
+        { "type": "Page", "summary": "页面容器，整页最外层", "prompt": "{ title?: string, theme?: \"light\"|\"dark\"|\"midnight\"|\"aurora\" (默认 light) }" },
+        { "type": "Navbar", "summary": "顶部导航栏（品牌 + 链接）", "prompt": "{ brand?: string } children: Link elements" },
+        { "type": "Heading", "summary": "标题（h1/h2/h3）", "prompt": "{ level?: 1|2|3, text: string }" },
+        { "type": "Hero", "summary": "标题 + 操作按钮同行（垂直居中），用于页面顶部", "prompt": "{ level?: 1|2|3, text: string } children: Button elements" },
+        { "type": "Paragraph", "summary": "段落文本", "prompt": "{ text: string }" },
+        { "type": "Button", "summary": "按钮（主/次/危险色）", "prompt": "{ label: string, variant?: \"primary\"|\"secondary\"|\"danger\", onClick?: string }" },
+        { "type": "Input", "summary": "单行输入框", "prompt": "{ label?: string, placeholder?: string, type?: \"text\"|\"password\"|\"number\", defaultValue?: string }" },
+        { "type": "Textarea", "summary": "多行文本输入", "prompt": "{ label?: string, placeholder?: string, rows?: number }" },
+        { "type": "Card", "summary": "卡片容器", "prompt": "{ title?: string } children: any" },
+        { "type": "List", "summary": "列表（有序/无序）", "prompt": "{ ordered?: boolean, items: string[] }" },
+        { "type": "Badge", "summary": "角标/标签", "prompt": "{ text: string, tone?: \"success\"|\"warning\"|\"danger\"|\"info\" }" },
+        { "type": "Divider", "summary": "分隔线", "prompt": "{}" },
+        { "type": "Form", "summary": "表单（输入 + 提交）", "prompt": "{ onSubmitLabel?: string } children: Input/Textarea/Button" },
+        { "type": "Link", "summary": "链接（锚点导航）", "prompt": "{ href: string, text: string }" },
+        { "type": "Image", "summary": "图片", "prompt": "{ src: string, alt?: string, width?: string, height?: string, radius?: string }" },
+        { "type": "Avatar", "summary": "头像（图片或姓名首字母）", "prompt": "{ src?: string, name?: string, size?: string }" },
+        { "type": "Stat", "summary": "指标数字（带 label/value/unit）", "prompt": "{ label: string, value: string|number, unit?: string, tone?: \"success\"|\"warning\"|\"danger\"|\"info\" }" },
+        { "type": "Progress", "summary": "进度条", "prompt": "{ value: number (0-100), label?: string, tone?: \"success\"|\"warning\"|\"danger\"|\"info\" }" },
+        { "type": "Alert", "summary": "提示条", "prompt": "{ text: string, tone?: \"success\"|\"warning\"|\"danger\"|\"info\" }" },
+        { "type": "Table", "summary": "表格", "prompt": "{ headers: string[], rows: string[][] }" },
+        { "type": "Checkbox", "summary": "复选框", "prompt": "{ label?: string, checked?: boolean }" },
+        { "type": "Select", "summary": "下拉选择", "prompt": "{ label?: string, options: string[], defaultValue?: string }" },
+        { "type": "Quote", "summary": "引用", "prompt": "{ text: string, author?: string }" },
+        { "type": "CodeBlock", "summary": "代码块", "prompt": "{ code: string, language?: string }" },
+        { "type": "Steps", "summary": "步骤条", "prompt": "{ items: string[] }" },
+        { "type": "Timeline", "summary": "时间线", "prompt": "{ items: string[] }" },
+        { "type": "Footer", "summary": "页脚", "prompt": "{ text?: string } children: any" },
+        { "type": "Row", "summary": "水平排列容器（flex row），用于将子组件横向排列", "prompt": "{ gap?: string (如 '16px'), align?: 'stretch'|'center'|'start'|'end', wrap?: boolean } children: any" },
+        { "type": "Grid", "summary": "网格布局容器（CSS grid），用于卡片/指标等多列排列", "prompt": "{ cols?: number (如 2|3|4), gap?: string (如 '16px') } children: any" }
+      ]
+    },
+    {
+      "name": "3D 场景（react-three-fiber）",
+      "components": [
+        { "type": "Scene3D", "summary": "3D 场景容器", "prompt": "{ background?: string (hex), height?: string, camera?: \"x,y,z\" } children: the shapes below" },
+        { "type": "Box3D", "summary": "3D 立方体", "prompt": "{ position?: \"x,y,z\", size?: \"w,h,d\", rotation?: \"x,y,z\", color?: string }" },
+        { "type": "Sphere3D", "summary": "3D 球体", "prompt": "{ position?: \"x,y,z\", radius?: number, color?: string }" },
+        { "type": "Torus3D", "summary": "3D 圆环", "prompt": "{ position?: \"x,y,z\", radius?: number, tube?: number, color?: string }" },
+        { "type": "Plane3D", "summary": "3D 平面/地面", "prompt": "{ position?: \"x,y,z\", size?: \"w,h,d\", color?: string }" },
+        { "type": "Cylinder3D", "summary": "3D 圆柱", "prompt": "{ position?: \"x,y,z\", radius?: number, height?: number, color?: string }" },
+        { "type": "Cone3D", "summary": "3D 圆锥", "prompt": "{ position?: \"x,y,z\", radius?: number, height?: number, color?: string }" },
+        { "type": "Icosahedron3D", "summary": "3D 多面体", "prompt": "{ position?: \"x,y,z\", radius?: number, color?: string }" },
+        { "type": "TorusKnot3D", "summary": "3D 环形结", "prompt": "{ position?: \"x,y,z\", radius?: number, tube?: number, color?: string }" }
+      ]
+    },
+    {
+      "name": "高级组件（shadcn/ui）",
+      "components": [
+        { "type": "SDialog", "summary": "模态对话框（Radix Dialog）", "prompt": "{ trigger?: string, title?: string, description?: string, content?: string }" },
+        { "type": "STabs", "summary": "选项卡切换", "prompt": "{ labels?: string[], contents?: string[] }" },
+        { "type": "SSwitch", "summary": "开关切换", "prompt": "{ label?: string, checked?: boolean }" },
+        { "type": "SSkeleton", "summary": "骨架屏加载占位", "prompt": "{ width?: string, height?: string, radius?: string }" },
+        { "type": "STooltip", "summary": "工具提示（悬停显示）", "prompt": "{ trigger?: string, content?: string }" },
+        { "type": "SDropdownMenu", "summary": "下拉菜单", "prompt": "{ trigger?: string, items?: string[] }" },
+        { "type": "SSheet", "summary": "侧边抽屉面板", "prompt": "{ trigger?: string, title?: string, content?: string }" },
+        { "type": "SToast", "summary": "通知提示（点击触发）", "prompt": "{ trigger?: string, text?: string, tone?: \"default\"|\"success\"|\"warning\"|\"danger\" }" },
+        { "type": "SAccordion", "summary": "手风琴折叠面板", "prompt": "{ items?: string[], contents?: string[], type?: \"single\"|\"multiple\" }" },
+        { "type": "SAvatar", "summary": "头像（图片+姓名首字母回退）", "prompt": "{ src?: string, name?: string, size?: string }" },
+        { "type": "SProgress", "summary": "进度条（Radix Progress）", "prompt": "{ value?: number (0-100), label?: string, tone?: \"default\"|\"success\"|\"warning\"|\"danger\" }" },
+        { "type": "SSeparator", "summary": "分隔线（水平/垂直/带文字）", "prompt": "{ orientation?: \"horizontal\"|\"vertical\", label?: string }" },
+        { "type": "SCheckbox", "summary": "复选框（Radix Checkbox）", "prompt": "{ label?: string, checked?: boolean }" },
+        { "type": "SSelect", "summary": "下拉选择器（Radix Select）", "prompt": "{ label?: string, options?: string[], placeholder?: string, defaultValue?: string }" },
+        { "type": "SToggle", "summary": "切换按钮（按下/弹起状态）", "prompt": "{ label?: string, variant?: \"default\"|\"outline\", pressed?: boolean }" },
+        { "type": "SLabel", "summary": "表单标签（含可选提示文本）", "prompt": "{ text?: string, hint?: string }" },
+        { "type": "SRadioGroup", "summary": "单选按钮组", "prompt": "{ label?: string, options?: string[], defaultValue?: string }" },
+        { "type": "SSlider", "summary": "滑块（范围选择）", "prompt": "{ label?: string, min?: number, max?: number, step?: number, value?: number }" },
+        { "type": "SPagination", "summary": "分页导航", "prompt": "{ total?: number }" },
+        { "type": "SBreadcrumb", "summary": "面包屑导航", "prompt": "{ items?: string[], separator?: string }" },
+        { "type": "SPopover", "summary": "弹出面板（点击触发）", "prompt": "{ trigger?: string, title?: string, content?: string }" },
+        { "type": "SContextMenu", "summary": "右键菜单", "prompt": "{ items?: string[], hint?: string }" },
+        { "type": "SInputOTP", "summary": "验证码/OTP 输入框", "prompt": "{ label?: string, length?: number (4-8) }" },
+        { "type": "SBadge", "summary": "标签徽章（filled/outline）", "prompt": "{ text?: string, tone?: \"default\"|\"secondary\"|\"success\"|\"warning\"|\"danger\"|\"outline\", variant?: \"filled\"|\"outline\" }" }
+      ]
+    }
+  ]
+}

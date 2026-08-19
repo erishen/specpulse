@@ -1,0 +1,220 @@
+/* ─── Showcase Hero ─────────────────────────────────────────────── */
+
+.showcase-hero {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.06) 0%, rgba(118, 75, 162, 0.06) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.showcase-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.showcase-hero-inner h1 {
+  font-size: 26px;
+}
+
+.showcase-hero-inner p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.showcase-counts {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.showcase-count {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Section header ────────────────────────────────────────────── */
+
+.section-desc {
+  color: #64748b;
+  font-size: 13px;
+  margin: -4px 0 8px;
+}
+
+/* ─── Tab 导航 ─────────────────────────────────────────────────── */
+
+.tab-btn {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 18px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+.tab-btn:hover {
+  border-color: rgba(102, 126, 234, 0.5);
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.06);
+  transform: translateY(-1px);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.35);
+}
+
+/* ─── Demo 网格 ────────────────────────────────────────────────── */
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 768px) {
+  .demo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ─── Demo 卡片 ────────────────────────────────────────────────── */
+
+.demo-group {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-group:hover {
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.demo-group h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* ─── Demo 头部 ────────────────────────────────────────────────── */
+
+.demo-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.demo-select {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  background: rgba(102, 126, 234, 0.04);
+  color: #667eea;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.demo-select:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.demo-select.on {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ─── Demo 标签 ────────────────────────────────────────────────── */
+
+.demo-tag {
+  font-size: 11px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  color: #7c3aed;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  border-radius: 8px;
+  padding: 4px 10px;
+  align-self: flex-start;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Demo 内容区 ──────────────────────────────────────────────── */
+
+.demo-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─── 3D 网格 ──────────────────────────────────────────────────── */
+
+.three-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 768px) {
+  .three-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+.three-grid .demo-tag {
+  display: flex;
+  align-items: center;
+  min-height: 2.4em;
+}
+
+.three-grid .demo-box {
+  flex: 1;
+  justify-content: center;
+}
+
+.three-grid .demo-group {
+  overflow: hidden;
+}
+
+.three-grid .demo-group:hover {
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.15);
+}

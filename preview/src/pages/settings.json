@@ -1,0 +1,97 @@
+{
+  "title": "设置页面",
+  "root": {
+    "type": "Page",
+    "props": { "title": "设置页面" },
+    "children": [
+      {
+        "type": "Navbar",
+        "props": { "brand": "MyApp" },
+        "children": [
+          { "type": "Link", "props": { "href": "#home", "text": "首页" } },
+          { "type": "Link", "props": { "href": "#profile", "text": "个人" } },
+          { "type": "Button", "props": { "label": "设置", "variant": "secondary" } }
+        ]
+      },
+      {
+        "type": "Heading",
+        "props": { "level": 1, "text": "账户设置" }
+      },
+      {
+        "type": "STabs",
+        "props": {
+          "labels": ["个人资料", "通知偏好", "安全设置"],
+          "contents": [
+            "在这里修改你的个人信息，包括昵称、头像和简介。所有更改会自动保存。",
+            "选择你希望接收的通知类型。你可以按渠道（邮件、站内信、推送）分别配置。",
+            "管理密码、两步验证和登录设备。建议定期更新密码以确保账户安全。"
+          ]
+        }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "通知开关" }
+      },
+      {
+        "type": "Card",
+        "props": { "title": "推送通知" },
+        "children": [
+          { "type": "SSwitch", "props": { "label": "邮件通知", "checked": true } },
+          { "type": "SSwitch", "props": { "label": "站内消息", "checked": true } },
+          { "type": "SSwitch", "props": { "label": "营销推送" } }
+        ]
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "快捷操作" }
+      },
+      {
+        "type": "Card",
+        "props": {},
+        "children": [
+          {
+            "type": "SDropdownMenu",
+            "props": { "trigger": "导出数据", "items": ["导出为 CSV", "导出为 JSON", "导出为 PDF"] }
+          },
+          {
+            "type": "STooltip",
+            "props": { "trigger": "清除缓存", "content": "清除本地缓存数据，不影响云端存储" }
+          },
+          {
+            "type": "SDialog",
+            "props": {
+              "trigger": "删除账户",
+              "title": "确认删除账户？",
+              "description": "此操作不可撤销，所有数据将被永久删除。",
+              "content": "请输入你的密码以确认操作。"
+            }
+          }
+        ]
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "加载状态示例" }
+      },
+      {
+        "type": "Card",
+        "props": { "title": "内容加载中..." },
+        "children": [
+          { "type": "SSkeleton", "props": { "width": "100%", "height": "20px", "radius": "6px" } },
+          { "type": "SSkeleton", "props": { "width": "80%", "height": "20px", "radius": "6px" } },
+          { "type": "SSkeleton", "props": { "width": "60%", "height": "20px", "radius": "6px" } }
+        ]
+      },
+      {
+        "type": "SToast",
+        "props": { "trigger": "测试通知", "text": "设置已保存", "tone": "success" }
+      },
+      {
+        "type": "Footer",
+        "props": { "text": "© 2026 MyApp" }
+      }
+    ]
+  }
+}

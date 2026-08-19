@@ -1,0 +1,27 @@
+{
+  "title": "3D Showcase",
+  "root": {
+    "type": "Page",
+    "props": { "title": "Product showcase" },
+    "children": [
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "Explore the product in 3D" }
+      },
+      {
+        "type": "Paragraph",
+        "props": { "text": "Drag to rotate the scene." }
+      },
+      {
+        "type": "Scene3D",
+        "props": { "background": "#0f172a", "height": "480px" },
+        "children": [
+          { "type": "Box3D", "props": { "position": "-2.2,0.5,0", "color": "#3b82f6" } },
+          { "type": "Sphere3D", "props": { "position": "0,0.8,0", "radius": 0.8, "color": "#22d3ee" } },
+          { "type": "Torus3D", "props": { "position": "2.2,0.5,0", "color": "#f59e0b" } },
+          { "type": "Plane3D", "props": { "position": "0,-0.5,0", "size": "24,24,1", "color": "#1e293b" } }
+        ]
+      }
+    ]
+  }
+}

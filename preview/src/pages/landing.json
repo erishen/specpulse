@@ -1,0 +1,97 @@
+{
+  "title": "产品落地页",
+  "root": {
+    "type": "Page",
+    "props": { "title": "产品落地页" },
+    "children": [
+      {
+        "type": "Navbar",
+        "props": { "brand": "CloudApp" },
+        "children": [
+          { "type": "Link", "props": { "href": "#features", "text": "功能" } },
+          { "type": "Link", "props": { "href": "#pricing", "text": "定价" } },
+          { "type": "Link", "props": { "href": "#about", "text": "关于" } },
+          { "type": "Button", "props": { "label": "免费试用", "variant": "primary" } }
+        ]
+      },
+      {
+        "type": "Hero",
+        "props": { "level": 1, "text": "让团队协作更高效" },
+        "children": [
+          { "type": "Button", "props": { "label": "立即开始", "variant": "primary" } },
+          { "type": "Button", "props": { "label": "观看演示", "variant": "secondary" } }
+        ]
+      },
+      {
+        "type": "Paragraph",
+        "props": { "text": "CloudApp 是一款为现代团队打造的协作工具，集成任务管理、实时沟通、文档协作于一体。" }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "核心优势" }
+      },
+      {
+        "type": "Card",
+        "props": { "title": "实时协作" },
+        "children": [
+          { "type": "Paragraph", "props": { "text": "多人同时编辑，变更即时同步，告别版本冲突。" } }
+        ]
+      },
+      {
+        "type": "Card",
+        "props": { "title": "智能提醒" },
+        "children": [
+          { "type": "Paragraph", "props": { "text": "基于上下文的智能通知，不错过重要事项，不被无关消息打扰。" } }
+        ]
+      },
+      {
+        "type": "Card",
+        "props": { "title": "数据洞察" },
+        "children": [
+          { "type": "Paragraph", "props": { "text": "可视化团队工作数据，发现瓶颈，持续优化流程。" } }
+        ]
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "客户评价" }
+      },
+      {
+        "type": "Quote",
+        "props": { "text": "用了 CloudApp 之后，团队效率提升了 40%。", "author": "张明 · CTO at TechCorp" }
+      },
+      {
+        "type": "Quote",
+        "props": { "text": "终于不用再在多个工具之间切换了，一切都在一个地方。", "author": "李华 · 产品经理" }
+      },
+      { "type": "Divider", "props": {} },
+      {
+        "type": "Heading",
+        "props": { "level": 2, "text": "定价方案" }
+      },
+      {
+        "type": "Table",
+        "props": {
+          "headers": ["方案", "价格", "功能"],
+          "rows": [
+            ["免费版", "¥0", "最多 5 人，基础功能"],
+            ["专业版", "¥99/月", "无限成员，全部功能"],
+            ["企业版", "联系我们", "定制部署，专属支持"]
+          ]
+        }
+      },
+      {
+        "type": "Hero",
+        "props": { "level": 2, "text": "准备好提升团队效率了吗？" },
+        "children": [
+          { "type": "Button", "props": { "label": "免费试用 14 天", "variant": "primary" } }
+        ]
+      },
+      {
+        "type": "Footer",
+        "props": { "text": "© 2026 CloudApp. All rights reserved." }
+      }
+    ]
+  }
+}

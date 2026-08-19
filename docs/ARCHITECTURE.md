@@ -169,7 +169,6 @@ regenerate.ts 纯编译 App.tsx → 退出编辑态`。全程无 LLM。
 exports/<id>/
   index.html    # 单文件：内嵌 spec + 全部组件运行时（含 CSP meta）
   spec.json     # 部署时改 JSON 即改页面，无需重新构建
-  prompt.txt
   dist/ + dist.zip
 ```
 
@@ -178,6 +177,7 @@ exports/<id>/
 - spec 双通道：`file://` 下直接读内嵌 `window.__UIAGENT_SPEC__`（避免 fetch 的
   CORS 报错）；静态托管时优先 `fetch('./spec.json')` 实现真·动态更新。
 - 内嵌时把 `<` 转义为 `\u003c`，防 spec 文本逃逸出内联脚本。
+- **隐私**：`prompt.txt`（用户原始生成提示词）不随导出物打包，公网部署不会泄露。
 
 ## 10. 安全与隐私模型
 

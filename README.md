@@ -12,14 +12,14 @@ prompt ──► LLM ──► UI spec (JSON tree) ──► React component ─
 - **Design system + 4 themes** — `preview/src/index.css` is token-driven; every
   `Page` takes a `theme` prop (`light` / `dark` / `midnight` / `aurora`) and the
   whole palette restyles (glassmorphism cards, dark-aware tables/badges/steps…).
-- **Incremental adjust** — keep a page and iterate with the 调整 box ("把标题改蓝色",
-  "在 hero 下面加一张 Stat 卡片"), instead of regenerating from scratch.
+- **Incremental adjust** — keep a page and iterate with the Adjust box ("make the title
+  blue", "add a Stat card under the hero"), instead of regenerating from scratch.
 - **Element references** — in edit mode click any component to get its `#1.2`-style
-  path reference (visible + copyable in the toolbar). Paste it into the 调整 box to
-  target a specific element ("在 #1.2 左边插入一个按钮").
-- **On-page click-to-edit** — the 编辑 button switches the preview into a spec-driven
+  path reference (visible + copyable in the toolbar). Paste it into the Adjust box to
+  target a specific element ("insert a button to the left of #1.2").
+- **On-page click-to-edit** — the Edit button switches the preview into a spec-driven
   editor: click a component, edit its fields in the inspector, add / remove / reorder
-  children, then 保存 to recompile `spec.json → App.tsx` without calling the LLM.
+  children, then Save to recompile `spec.json → App.tsx` without calling the LLM.
 - **Reference-image generation** — upload a screenshot or mockup; a vision model
   reproduces a similar UI.
 
@@ -40,7 +40,7 @@ npm run agent
 ```
 
 Curated prompt examples: see `docs/examples.md` (also built into the desktop
-console as clickable 示例 chips).
+console as clickable starter chips).
 
 Offline pipeline smoke test (no LLM needed):
 
@@ -48,7 +48,7 @@ Offline pipeline smoke test (no LLM needed):
 npm run ci                   # compiles tests/fixtures/pricing.json -> preview/src/App.tsx
 ```
 
-## Desktop console (Electron 操作台)
+## Desktop console (Electron)
 
 Prompt on the left, live preview on the right, generation history kept in
 localStorage. The preview is served by a vite dev server (:5278) spawned by the
@@ -63,27 +63,29 @@ npm run desktop:dev              # dev mode: electron + console vite -- hot relo
 npm --prefix desktop run dev
 ```
 
-- **Build flow (main → CLI → preview)**: pressing 生成 in the console calls
+- **Build flow (main → CLI → preview)**: pressing Generate in the console calls
   `IPC.build(prompt)`; the main process spawns `node --import tsx
   src/cli/build.ts "<prompt>"` (argv-only, never through a shell), which writes
   `preview/src/App.tsx`; the console bumps the iframe `?t=` query to reload.
-- **调整 (adjust)**: an LLM diff against the current record's `spec.json`
+- **Adjust**: an LLM diff against the current record's `spec.json`
   (`src/cli/adjust.ts`), keeping everything untouched unless asked. The selected
   element's `#ref` is auto-appended as context, and any `#1.2` references in the
   instruction are expanded into concrete node descriptions before the call.
-- **编辑 (edit-in-place)**: the console posts the record's spec to the preview
+- **Edit (in place)**: the console posts the record's spec to the preview
   iframe (`postMessage`); `preview/src/PreviewRoot.tsx` swaps the compiled `App`
   for the spec-driven `SpecEditor`. Saving writes `spec.json` and re-runs
   `src/cli/regenerate.ts` (pure compile, no LLM), then exits edit mode.
 - **History**: every generation is also archived to `generated/<stamp>-<title>/`
-  (`prompt.txt`, `spec.json`, `App.tsx`). The console lists these under 已保存
-  and any entry can be restored into the live preview. `generated/` is not
-  gitignored — commit it if you want the history versioned.
-- **导出**: `src/cli/export.ts` bundles a record into a **dynamic** single-file
+  (`prompt.txt`, `spec.json`, `App.tsx`). The console lists these under Saved
+  and any entry can be restored into the live preview. `generated/` is gitignored
+  for privacy (records contain your raw prompts) — track it explicitly if you
+  want the history versioned.
+- **Export**: `src/cli/export.ts` bundles a record into a **dynamic** single-file
   HTML under `exports/` (gitignored): the page renders from `spec.json` at runtime,
   so you can edit the JSON and the page changes without rebuilding. The spec is
   also embedded in the HTML (so `file://` double-click still works) and shipped
-  alongside as `exports/<id>/spec.json` (+ `prompt.txt`).
+  alongside as `exports/<id>/spec.json`. The raw generation prompt is **not**
+  included in exports, so a publicly deployed export can't leak it.
 - **First launch**: no `.env` yet → the console shows a hint instead of
   failing. Add `OPENAI_API_KEY` to the project root `.env` and regenerate.
 - **electron binary note**: this repo pins `electron@37.10.3`. If the binary
@@ -118,7 +120,7 @@ preview/               Vite + React runtime that renders generated App.tsx
   src/uiShadcn.tsx     radix-based shadcn-style components
   src/SpecEditor.tsx   on-page click-to-edit (spec-driven, no LLM)
   src/PreviewRoot.tsx  switches compiled App <-> SpecEditor via console messages
-desktop/               Electron 操作台: console UI + IPC main that spawns the CLI
+desktop/               Electron console: UI + IPC main that spawns the CLI
 tests/                 node:test + fixtures (TDD)
 ```
 

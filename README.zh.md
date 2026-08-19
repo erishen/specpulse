@@ -67,12 +67,13 @@ npm --prefix desktop run dev
 - **编辑（点击即改）**：操作台通过 `postMessage` 把记录 spec 发给预览 iframe；
   `preview/src/PreviewRoot.tsx` 把编译版 `App` 换成 spec 驱动的 `SpecEditor`。
   保存会写 `spec.json` 并重跑 `src/cli/regenerate.ts`（纯编译、无 LLM），随后退出编辑态。
-- **历史**：每次生成都会归档到 `generated/<stamp>-<title>/`
+ - **历史**：每次生成都会归档到 `generated/<stamp>-<title>/`
   （`prompt.txt` + `spec.json` + `App.tsx`）。操作台的「已保存」列表可随时恢复到预览。
-  `generated/` 未加入 gitignore——想版本化历史就提交它。
-- **导出**：`src/cli/export.ts` 把记录打包成**动态**单文件 HTML 放到 `exports/`（已 gitignore）：
+  `generated/` 出于隐私已加入 gitignore（记录含你的原始提示词）——想版本化历史就显式跟踪它。
+ - **导出**：`src/cli/export.ts` 把记录打包成**动态**单文件 HTML 放到 `exports/`（已 gitignore）：
   页面运行时从 `spec.json` 渲染，改 JSON 页面就变、无需重新构建。spec 同时内嵌在
-  HTML 里（`file://` 双击照样能用），并随包附带 `exports/<id>/spec.json`（+ `prompt.txt`）。
+  HTML 里（`file://` 双击照样能用），并随包附带 `exports/<id>/spec.json`。
+  **原始生成 prompt 不进导出物**，部署公网不会泄露它。
 - **首次启动**：还没有 `.env` 时操作台只提示、不报错。填好根目录 `.env` 的
   `OPENAI_API_KEY` 后重新生成即可。
 - **electron 二进制说明**：本仓库锁定 `electron@37.10.3`。若网络下载卡住

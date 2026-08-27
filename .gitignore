@@ -10,3 +10,4 @@ desktop/node_modules/
 desktop/package-lock.json
 exports/
 .DS_Store.serena
+.serena/

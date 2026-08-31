@@ -186,3 +186,6 @@ Remaining ideas not tracked there yet:
 - [ ] generated data-aware components (reuse datapulse tables/charts)
 - [ ] capture screenshots for regression diffs
 - [ ] code-split the 3D runtime behind a lazy `React.lazy(Scene3D)` so pages without 3D stay light
+
+## Related Articles
+- [SpecPulse: An Electron + React + Vite Workbench That Turns Natural Language into a Declarative UI Spec and Compiles It into Real React Components with Live Preview](https://erishen.cn/specpulse-en/)

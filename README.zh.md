@@ -166,3 +166,6 @@ npm --prefix desktop run build
 - [ ] 生成数据感知组件（复用 datapulse 的表格/图表）
 - [ ] 截图回归对比
 - [ ] 用 `React.lazy(Scene3D)` 对 3D 运行时做代码分割，让无 3D 页面保持轻量
+
+## 相关文章
+- [基于 Electron + React + Vite 的 AI UI 生成工作台，用自然语言描述需求，LLM 转为声明式 UI spec 并编译成真实 React 组件实时预览](https://erishen.cn/specpulse/)

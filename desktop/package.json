@@ -9,8 +9,7 @@
     "dev:all": "./dev.sh",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "start": "npm run build && electron .",
-    "postinstall": "bash $HOME/.electron-dist/link-electron.sh || true"
+    "start": "npm run build && electron ."
   },
   "dependencies": {
     "react": "^18.3.1",

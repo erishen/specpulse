@@ -7,7 +7,7 @@
 # datapulse-copy workaround on slow networks (see README "Desktop console").
 # ===========================================================================
 
-.PHONY: install init build agent ci preview dev desktop desktop-ui desktop-dev export adjust typecheck test clean help
+.PHONY: install init build agent ci preview dev desktop desktop-ui desktop-dev desktop-dev-all export adjust typecheck test clean help
 
 install: ## Root deps only (fast)
 	npm install
@@ -52,6 +52,9 @@ desktop-ui: ## Console vite dev server (:5277) — run before `make desktop-dev`
 
 desktop-dev: ## Electron dev mode (HMR console): needs `make desktop-ui` running
 	npm run desktop:dev
+
+desktop-dev-all: ## Launch the Electron console in dev mode (Vite + Electron HMR, one command)
+	npm --prefix desktop run dev:all
 
 typecheck: ## TypeScript check (root + preview + desktop)
 	npm run typecheck

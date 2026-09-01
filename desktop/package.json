@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "dev:electron": "VITE_DEV_SERVER_URL=http://localhost:5277 electron .",
+    "dev:all": "./dev.sh",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "start": "npm run build && electron ."
+    "start": "npm run build && electron .",
+    "postinstall": "bash $HOME/.electron-dist/link-electron.sh || true"
   },
   "dependencies": {
     "react": "^18.3.1",

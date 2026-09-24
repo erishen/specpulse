@@ -11,3 +11,6 @@ desktop/package-lock.json
 exports/
 .DS_Store.serena
 .serena/
+
+# npm config (may contain registry auth tokens; keep local only)
+.npmrc
